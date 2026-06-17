@@ -1,5 +1,7 @@
 # U.S. Obesity Tracker
 
+**🌐 Live site → <https://asingh756.github.io/obesity-tracker/>**
+
 An interactive public dashboard of **adult obesity across the United States**, built
 entirely on trusted CDC public-health data. Open the site and you get a heat map of
 every state, national and state-level trend charts, a plain-language read on whether
@@ -67,9 +69,13 @@ meaningful.
 
 ## Deploy (GitHub Pages)
 
-The repo is already Pages-ready (`index.html` at the root, a `.nojekyll` file so JSON
-and folders are served verbatim). In the repo settings, set **Pages → Deploy from a
-branch → `main` / root**.
+The site is published with **GitHub Pages** and is live at
+**<https://asingh756.github.io/obesity-tracker/>**.
+
+It's a plain static site (`index.html` at the root, plus a `.nojekyll` file so the
+JSON and folders are served verbatim), so every push to `main` redeploys it
+automatically. To reproduce the setup on a fork: repo **Settings → Pages → Deploy
+from a branch → `main` / root**.
 
 ## Project layout
 
