@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>U.S. Obesity Tracker — CDC adult obesity by state, county &amp; city</title>
+  <meta name="description" content="An interactive public dashboard of U.S. adult obesity rates by state, county, and city, built on CDC BRFSS and CDC PLACES data. See the heat map, national and state trends, and local rankings." />
+  <link rel="preconnect" href="https://data.cdc.gov" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Vendored locally so the site is self-contained (no runtime CDN dependency) -->
+  <script src="vendor/d3.min.js" defer></script>
+  <script src="vendor/topojson.min.js" defer></script>
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 2a8 8 0 0 1 8 8h-8Z"/></svg>
+        </div>
+        <div class="brand-text">
+          <h1>U.S. Obesity Tracker</h1>
+          <p class="tagline">Adult obesity across America, from CDC public health surveillance</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span class="pill pill-warn" title="Public health data is published per reporting year, not second-by-second. This dashboard always shows the latest available year.">
+          <span class="dot"></span> Latest reporting year · not real-time
+        </span>
+        <span class="data-dates" id="data-dates"></span>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard wrap">
+    <section class="card map-card">
+      <div class="card-head">
+        <div>
+          <h2>Adult obesity rate by state</h2>
+          <p class="card-sub">Share of adults 18+ with obesity (BMI&nbsp;&ge;&nbsp;30) · <span id="map-year">—</span> · <span class="src-tag">CDC&nbsp;BRFSS</span></p>
+        </div>
+        <div class="legend" id="legend" aria-hidden="true"></div>
+      </div>
+      <div class="map-wrap" id="map">
+        <div class="loading">Loading map…</div>
+      </div>
+      <p class="map-foot" id="map-foot">Hover a state for its rate · click to open its detail panel.</p>
+    </section>
+
+    <aside class="card side-card" id="side-panel" aria-live="polite">
+      <div class="loading">Loading CDC data…</div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-cols">
+        <div>
+          <h3>Data sources</h3>
+          <ul id="foot-sources">
+            <li>State &amp; national — CDC&nbsp;BRFSS</li>
+            <li>County &amp; city — CDC&nbsp;PLACES</li>
+          </ul>
+        </div>
+        <div>
+          <h3>How to read this</h3>
+          <p class="foot-note" id="foot-method"></p>
+        </div>
+      </div>
+      <p class="foot-fine" id="foot-fine"></p>
+    </div>
+  </footer>
+
+  <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+</body>
+</html>
